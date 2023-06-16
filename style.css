@@ -134,5 +134,7 @@ header{
 
 .Notes{
     color: red;
-    
+    text-align: center;
+    cursor: grab;
+    /* text-decoration: line-through; */
 }

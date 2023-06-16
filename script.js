@@ -47,7 +47,10 @@ function showPopUpTask(){
   WorkSpace.style.filter = "blur(3Px)";
 }
 
-let count = 0;
+
+
+var count = 0;
+
 function AddNewCard(){
   
   
@@ -67,49 +70,43 @@ function AddNewCard(){
   ToDoContainer.appendChild(NewCard)
 
   
-  // let Add_Items = document.getElementsByClassName("Add_Items")[count]
   
   let Todo_Cards = document.getElementsByClassName("Todo_Cards")[count]
-
-  let Add_Items = Todo_Cards.children[1]
+  
   
   let Delete_Card = document.getElementsByClassName("Delete_Card")[count]
   
-  Delete_Card.addEventListener('click', ()=>{
-    Todo_Cards.remove()
-    count--;
-  })  
+                Delete_Card.addEventListener('click', ()=>{
+                  Todo_Cards.remove()
+                  count--;
+                })  
+  
+  
   
   let New_Task = document.getElementsByClassName("New_Task")[count]
   
+  let Add_Items = document.getElementsByClassName("Add_Items")[count]
+  
   New_Task.addEventListener('click' , ()=>{
+
     showPopUpTask()
-  })
-  
- 
-  
-  function Addkeep(){
-    
+
     var newKeep = document.createElement('div')
     newKeep.className = "Notes"
-
-    let Todo_Item_Name = document.getElementById("Todo_Item_Name").value
-
-    newKeep.innerText = Todo_Item_Name  
-
     Add_Items.appendChild(newKeep)
-
-  }
-
-  New_SubTodo.addEventListener('click', ()=>{
-    Addkeep()
-    hidePopUp()
-    console.log(Todo_Cards)
+    
+    New_SubTodo.addEventListener('click', ()=>{
+      hidePopUp()
+      let Todo_Item_Name = document.getElementById("Todo_Item_Name").value
+      newKeep.innerText = Todo_Item_Name
+    })
+    newKeep.addEventListener('click', ()=>{
+      newKeep.style.textDecoration = "line-through";
+    })
   })
-
-
   count++;
 }
+
 
 
 
