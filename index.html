@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App JS</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+</head>
+<body>
+    <div id="WorkSpace">
+        <header>
+            <div>
+                <span class="right">Tasks</span>
+                <span class="left">List</span>
+            </div>
+            <div id="AddList">
+                <i class='fa fa-plus-circle fa-2x PlusIcon'></i>
+                <span class="add_item">Add Item</span>
+            </div>
+        </header>
+        <div id="ToDoContainer">
+            <div id="NoItem">No Items in the todo list</div>
+        </div>
+    </div>
+    <div class="PopUp">
+        <div id="Todo_List" class="PopUp_List">
+            <div class="PopUp_Head">Add New List</div>
+            <input type="text" placeholder="Add new List" id="Todo_Title_Name">
+            <div>
+                <button class="Btn" id="New_Todo">Add</button>
+                <button class="Btn" id="PopUp_Close">Close</button>
+            </div>
+        </div>
+        <div id="Todo_Task" class="PopUp_List">
+            <div class="PopUp_Head">Add New Task</div>
+            <input type="text" placeholder="Add new Task" id="Todo_Item_Name">
+            <div>
+                <button class="Btn" id="New_SubTodo">Add</button>
+                <button class="Btn" id="PopUp_SubClose">Close</button>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>

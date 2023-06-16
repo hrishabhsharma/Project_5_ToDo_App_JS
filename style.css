@@ -1,0 +1,138 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+}
+
+#WorkSpace{
+    color: white;
+    /* cursor: alias; */
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 300px;
+}
+.right , .left{
+    font-size: 35px;
+}
+.right{
+    font-weight: bold;
+}
+#AddList{
+    cursor: pointer;
+}
+.PlusIcon{
+    color: dodgerblue;
+}
+.add_item{
+    font-size: 28px;
+}
+
+
+#ToDoContainer{
+    margin: 0px 180px;
+    font-size: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+/* ************************ POPUP ITEMS *************************/
+.PopUp{
+    position: fixed;
+    top: 10em;
+    left: 35em;
+    text-align: center;
+    display: none;
+}
+.PopUp_List{
+    width: 400px;
+    height: 200px;
+    border: 1px solid tomato;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 30px;
+    position: absolute;
+}
+.PopUp_Head{
+    font-size: 20px;
+    color: tomato;
+}
+.PopUp input{
+    text-align: center; 
+    border-radius: 5px; 
+    height: 40px;
+}
+.Btn{
+    cursor: pointer;
+    font-size: 25px;
+    color: white;
+    border: 1px solid tomato;
+    height: 40px;
+    width: 100px;
+    border-radius: 20px;
+    background-color: tomato;
+    
+}
+
+/*************************** FOR TODO CARDS*******************/
+
+.Todo_Cards{
+    height: 350px;
+    width: 250px;
+    background-color: white;
+    border: 1px groove tomato;
+    border-radius: 10px;
+    /* top: 100px;
+    left: 300px; */
+    position: relative;
+    margin: 30px;
+}
+.Card_Title{
+    color: crimson;
+    margin-top: 30px;
+    height: 40px;
+    text-align: center;
+    font-size: 25px;
+    border-bottom: 1px solid;
+}
+
+.Button_Area{
+    width: 90px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.New_Task{
+    color: dodgerblue;
+    cursor: pointer;
+    
+}
+.Delete_Card{
+    background-color: crimson;
+    color: white;
+    height: 44px;
+    width: 44px;
+    padding-top: 10px;
+    border-radius: 50%;
+    align-self: center;
+    text-align:center;
+    cursor: pointer;
+}
+
+
+
+/* ******************************* */
+
+.Notes{
+    color: red;
+    
+}
