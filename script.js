@@ -1,110 +1,176 @@
 // var body = document.getElementsByTagName('body');
-
 var WorkSpace = document.getElementById('WorkSpace');
+var ToDoContainer = document.getElementById('ToDoContainer');
+var SinglePage = document.querySelector('.SinglePage')
+var NoItem = document.getElementById('NoItem');
 var PopUp = document.querySelector('.PopUp');
 var Todo_List = document.getElementById("Todo_List");
 var Todo_Task = document.getElementById("Todo_Task");
-var ListOpen = document.getElementById("AddList");
-var ListClose = document.getElementById("PopUp_Close");
-var New_Todo = document.getElementById('New_Todo');
+var OpenCardPopUp = document.getElementsByClassName("AddList");
+var CloseCardPopUp = document.getElementById("PopUp_Close");
+var CreatNewCards = document.getElementById('New_Todo');
+var CreateNewSubTask = document.getElementById('New_SubTodo');
+var CloseTaskPopUp = document.getElementById('PopUp_SubClose');
+var NewCardName = document.getElementById("Todo_Title_Name")
+var NewSubTaskName = document.getElementById("Todo_Item_Name")
+var NoOfCards = 0;
+var Bridge;
 
-var NoItem = document.getElementById('NoItem');
-var ToDoContainer = document.getElementById('ToDoContainer');
-
-var New_SubTodo = document.getElementById('New_SubTodo');
-var PopUp_SubClose = document.getElementById('PopUp_SubClose');
-
-
-
-ListOpen.addEventListener('click',()=>{
-    showPopUpList()
-  })
+OpenCardPopUp[0].addEventListener('click',()=>{
+    ShowCardPopUp()
+})
   
-ListClose.addEventListener('click',()=>{
-    hidePopUp()
+CloseCardPopUp.addEventListener('click',()=>{
+    HidePopUps()
 })
 
-PopUp_SubClose.addEventListener('click',()=>{
-  hidePopUp()
+CloseTaskPopUp.addEventListener('click',()=>{
+    HidePopUps()
 })
 
-function showPopUpList(){
+function ShowCardPopUp(){
   PopUp.style.display = "block";
   Todo_List.style.display = "flex";
   Todo_Task.style.display = "none";
   WorkSpace.style.filter = "blur(3Px)";
 }
 
-function hidePopUp(){
+function HidePopUps(){
   PopUp.style.display = "none";
   WorkSpace.style.filter = "blur(0Px)";
 }
 
-function showPopUpTask(){
+function ShowTaskPopUp(){
   Todo_Task.style.display = "flex";
   PopUp.style.display = "block";
   Todo_List.style.display = "none";
   WorkSpace.style.filter = "blur(3Px)";
 }
 
+CreatNewCards.addEventListener('click',()=>{
+  AddNewCard()
+  NoOfCards++;
+  msgNoItem()
+  HidePopUps()
+  SwitchToAllCard()
+})
 
-
-var count = 0;
+CreateNewSubTask.addEventListener('click',()=>{
+  Add_SubTask()
+})
 
 function AddNewCard(){
-  
-  
-  var Todo_Title_Name = document.getElementById("Todo_Title_Name").value
-
+            // Creating Elements of New Cards
   var NewCard = document.createElement('div')
-  NewCard.className = "Todo_Cards"
-  NewCard.innerHTML = `
-  <div class="Card_Title">${Todo_Title_Name}</div>\n
-  <div class="Add_Items"></div>\n
-  <div class="Button_Area">\n
-  <i class='fa fa-trash Delete_Card'></i>\n     
-  <i class='fa fa-plus-circle fa-2x New_Task'></i>\n
-  </div>\n
-  </div>`
+  var Card_Title = document.createElement('div')
+  var Add_Items = document.createElement('div')
+  var Button_Area = document.createElement('div')
+  var Delete_Card = document.createElement('div')
+  var New_Task = document.createElement('div')
   
+            // Appending the Elements of New Cards 
   ToDoContainer.appendChild(NewCard)
-
-  
-  
-  let Todo_Cards = document.getElementsByClassName("Todo_Cards")[count]
-  
-  
-  let Delete_Card = document.getElementsByClassName("Delete_Card")[count]
-  
-                Delete_Card.addEventListener('click', ()=>{
-                  Todo_Cards.remove()
-                  count--;
-                })  
-  
-  
-  
-  let New_Task = document.getElementsByClassName("New_Task")[count]
-  
-  let Add_Items = document.getElementsByClassName("Add_Items")[count]
-  
-  New_Task.addEventListener('click' , ()=>{
-
-    showPopUpTask()
-
-    var newKeep = document.createElement('div')
-    newKeep.className = "Notes"
-    Add_Items.appendChild(newKeep)
+  NewCard.appendChild(Card_Title)
+  NewCard.appendChild(Add_Items)
+  NewCard.appendChild(Button_Area)
+  Button_Area.appendChild(Delete_Card)
+  Button_Area.appendChild(New_Task)
     
-    New_SubTodo.addEventListener('click', ()=>{
-      hidePopUp()
-      let Todo_Item_Name = document.getElementById("Todo_Item_Name").value
-      newKeep.innerText = Todo_Item_Name
-    })
-    newKeep.addEventListener('click', ()=>{
-      newKeep.style.textDecoration = "line-through";
-    })
+            // Giving the Class Name to Elements
+  NewCard.className = "Todo_Cards"
+  Card_Title.className = "Card_Title"
+  Add_Items.id = `Add_Items${NoOfCards}`
+  Button_Area.className = "Button_Area"
+  Delete_Card.className = "fa fa-trash Delete_Card"
+  New_Task.className = "fa fa-plus-circle fa-2x New_Task"
+
+  Card_Title.innerText = `${NewCardName.value}`
+
+            // Add Event Listner for SubTask
+  New_Task.addEventListener('click',()=>{
+    ShowTaskPopUp()
+    Bridge = Add_Items.id
   })
-  count++;
+            // Add Event Listner for Delete Card
+  Delete_Card.addEventListener('click',()=>{
+    NewCard.remove()
+    NoOfCards--;
+    msgNoItem()
+  })
+            // Add Event Listner for Single card
+  Card_Title.addEventListener('click',()=>{
+    PageTitle.innerText = Card_Title.innerText
+    SinglePage.appendChild(NewCard)
+    SwitchToSingleCard()
+  })
+
+  LeftSecondPage.addEventListener('click',()=>{
+    ToDoContainer.appendChild(NewCard)
+    SwitchToAllCard()
+  })
+  OpenCardPopUp[1].addEventListener('click',()=>{
+    ShowCardPopUp()
+    ToDoContainer.appendChild(NewCard)
+  })
+}
+
+function Add_SubTask(){
+  // Creating New Sub Task
+let ans = document.getElementById(`${Bridge}`)
+var NewSub = document.createElement('div')
+var Notes = document.createElement('span')
+var TaskDone = document.createElement('span')
+
+  // Append Sub Elemenets
+ans.appendChild(NewSub)
+NewSub.appendChild(Notes)
+NewSub.appendChild(TaskDone)
+
+  // Giving the Class Name to Sub Elements
+NewSub.className = "NewSubTask"
+Notes.className = "Notes"
+TaskDone.className = "TaskDone"
+
+Notes.innerText = `${NewSubTaskName.value}`
+TaskDone.innerText = `Mark Done`
+
+
+TaskDone.addEventListener('click',()=>{
+TaskDone.style.display = "none"
+Notes.style.color = "crimson"
+Notes.style.textDecoration = "line-through";
+})
+
+HidePopUps()
+}
+
+FirstPage = WorkSpace.children[0]
+SecondPage = WorkSpace.children[1]
+let LeftSecondPage = SecondPage.children[0]
+let PageTitle = SecondPage.children[1]
+SecondPage.style.display = "none"
+
+
+
+function SwitchToSingleCard(){
+  FirstPage.style.display = "none"
+  SecondPage.style.display = "flex"
+  ToDoContainer.style.display = "none"
+}
+
+function SwitchToAllCard(){
+  FirstPage.style.display = "flex"
+  SecondPage.style.display = "none"
+  ToDoContainer.style.display = "flex"
+}
+
+function msgNoItem(){
+  if(NoOfCards > 0){
+    NoItem.style.display = "none"
+  }
+  else{
+    NoItem.style.display = "block"
+  }
 }
 
 
@@ -112,77 +178,44 @@ function AddNewCard(){
 
 
 
-New_Todo.addEventListener('click',()=>{
-  
-  NoItem.remove()
-  AddNewCard()
-  hidePopUp()
-  
+// function AddNewCard(){
+//   // Creating And Appending New Card
+// var NewCard = document.createElement('div')
+// NewCard.className = "Todo_Cards"
+// NewCard.innerHTML = `<div class="Card_Title">${NewCardName.value}</div>\n
+//                    <div id="Add_Items${NoOfCards}"></div>\n
+//                    <div class="Button_Area">\n
+//                    <div class='fa fa-trash Delete_Card'></div>\n     
+//                    <div class='fa fa-plus-circle fa-2x New_Task'></div>\n
+//                    </div>`
+// ToDoContainer.appendChild(NewCard)
+
+//   // Fetch The New Card Elements for Sub Task
+// var Add_Items = document.getElementById(`Add_Items${NoOfCards}`)
+// var New_Task = document.getElementsByClassName("New_Task")[NoOfCards]
+// var Delete_Card = document.getElementsByClassName("Delete_Card")[NoOfCards]
+
+//   // Add Event Listner for SubTask
+// New_Task.addEventListener('click',()=>{
+// ShowTaskPopUp()
+// Bridge = Add_Items.id
+// })
+
+//   // Add Event Listner for Delete Card
+// Delete_Card.addEventListener('click',()=>{
+// NewCard.remove()
+// NoOfCards--;
+// msgNoItem()
+// })
+// }
 
 
-  // if(count > 0){
-  //   NoItem.style.display = "none"
-  // }
-  // else{
-  //   NoItem.style.display = "block"
-  // }
-
-})
-  
-
-  // let innerItem_del = document.querySelector('.icon_delete')
-
-  // innerItem_del.addEventListener('click',()=>{
-    
-    // })  
-    // console.log(document.getElementsByClassName('cardItem'))
-    
-    
-    
-    // let innerItem = document.querySelector('.cardItem${count} .card_icon .icon_add')
-    
-    // innerItem.addEventListener('click', ()=>{
-      
-    //   let AddNote = document.getElementById("addTodo")
-      
-    //   let addList = document.createElement('div')
-      
-    //   addList.innerHTML = '<h3> This is first todo</h3>'
-      
-    //   addList.style.color = "black"
-      
-    //   AddNote.appendChild(addList)
-    // })
-    
-    
-    
-    // count++;
-  
-  
-  
-  
-
-
-
-  // var toDo = document.getElementById('addTodo')
-  
-  // var addClick  = document.getElementById('clickAdd')
-  
-  // let i=1
-  
-  // addClick.addEventListener('click' , ()=>{
-    //   let keep = document.createElement('div')
-    
-    //   keep.innerHTML = `<h2>This is todo ${i}<\h2>`
-    //   i++
-    //   toDo.appendChild(keep)
-    // })
-    // When the user clicks anywhere outside of the PopUp, close it
-    // window.onclick = function(event) {
-    //       if (event.target == PopUp) {
-      //             PopUp.className = "PopUp is-hidden";
-      //             body.className = "";
-      //             workspace.className = "Mainworkspace";
-    //             workspace.parentElement.className = "";
-    //         }
-    //     }
+// window.onclick = function(event) {
+  //       if (event.target == PopUp) {
+//             PopUp.className = "PopUp is-hidden";
+//             body.className = "";
+//             workspace.className = "Mainworkspace";
+//             workspace.parentElement.className = "";
+//         }
+//     }
+// When the user clicks anywhere outside of the PopUp, close it

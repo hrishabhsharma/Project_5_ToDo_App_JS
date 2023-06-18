@@ -21,7 +21,7 @@ header{
 .right{
     font-weight: bold;
 }
-#AddList{
+.AddList{
     cursor: pointer;
 }
 .PlusIcon{
@@ -29,6 +29,11 @@ header{
 }
 .add_item{
     font-size: 28px;
+}
+#SingleTag{
+    font-weight: bold;
+    font-size: 42px;
+    margin-right: 10px;
 }
 
 
@@ -38,7 +43,11 @@ header{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    
+}
 
+.SinglePage{
+    margin-left: 40em;
 }
 /* ************************ POPUP ITEMS *************************/
 .PopUp{
@@ -84,8 +93,8 @@ header{
 /*************************** FOR TODO CARDS*******************/
 
 .Todo_Cards{
-    height: 350px;
-    width: 250px;
+    min-height: 350px;
+    width: 230px;
     background-color: white;
     border: 1px groove tomato;
     border-radius: 10px;
@@ -96,11 +105,12 @@ header{
 }
 .Card_Title{
     color: crimson;
-    margin-top: 30px;
-    height: 40px;
-    text-align: center;
     font-size: 25px;
-    border-bottom: 1px solid;
+    text-align: center;
+    height: 40px;
+    border-bottom: 1px solid black;
+    margin-top: 20px;
+    cursor: pointer;
 }
 
 .Button_Area{
@@ -117,7 +127,7 @@ header{
     
 }
 .Delete_Card{
-    background-color: crimson;
+    background-color: tomato;
     color: white;
     height: 44px;
     width: 44px;
@@ -132,9 +142,27 @@ header{
 
 /* ******************************* */
 
-.Notes{
-    color: red;
+.NewSubTask{
     text-align: center;
-    cursor: grab;
+    margin-top: 5px;
+}
+
+.Notes{
+    font-size: 20px;
+    color: black;
+    /* text-align: center;
+    cursor: grab; */
     /* text-decoration: line-through; */
+}
+
+.TaskDone{
+    color: white;
+    font-size: 10px;
+    background-color: rgb(66, 116, 211);
+    border: 1px solid rgb(66, 116, 211);
+    border-radius: 15px;
+    padding: 5px;
+    vertical-align: 25%;
+    cursor: pointer;
+    margin-left: 10px;
 }
