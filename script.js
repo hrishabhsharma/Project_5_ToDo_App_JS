@@ -65,6 +65,7 @@ function AddNewCard(){
             // Creating Elements of New Cards
   var NewCard = document.createElement('div')
   var Card_Title = document.createElement('div')
+  var hrTag = document.createElement('hr')
   var Add_Items = document.createElement('div')
   var Button_Area = document.createElement('div')
   var Delete_Card = document.createElement('div')
@@ -73,6 +74,7 @@ function AddNewCard(){
             // Appending the Elements of New Cards 
   ToDoContainer.appendChild(NewCard)
   NewCard.appendChild(Card_Title)
+  NewCard.appendChild(hrTag)
   NewCard.appendChild(Add_Items)
   NewCard.appendChild(Button_Area)
   Button_Area.appendChild(Delete_Card)
@@ -122,27 +124,27 @@ function Add_SubTask(){
   // Creating New Sub Task
 let ans = document.getElementById(`${Bridge}`)
 var NewSub = document.createElement('div')
-var Notes = document.createElement('span')
+var ToDoItem = document.createElement('span')
 var TaskDone = document.createElement('span')
 
   // Append Sub Elemenets
 ans.appendChild(NewSub)
-NewSub.appendChild(Notes)
+NewSub.appendChild(ToDoItem)
 NewSub.appendChild(TaskDone)
 
   // Giving the Class Name to Sub Elements
 NewSub.className = "NewSubTask"
-Notes.className = "Notes"
+ToDoItem.className = "ToDoItem"
 TaskDone.className = "TaskDone"
 
-Notes.innerText = `${NewSubTaskName.value}`
+ToDoItem.innerText = `${NewSubTaskName.value}`
 TaskDone.innerText = `Mark Done`
 
 
 TaskDone.addEventListener('click',()=>{
 TaskDone.style.display = "none"
-Notes.style.color = "crimson"
-Notes.style.textDecoration = "line-through";
+ToDoItem.style.color = "crimson"
+ToDoItem.style.textDecoration = "line-through";
 })
 
 HidePopUps()
