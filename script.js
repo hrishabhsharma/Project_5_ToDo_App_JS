@@ -79,11 +79,13 @@ function AddNewCard(){
             // Giving the Class Name to Elements
   NewCard.className = "Todo_Cards"
   Card_Title.className = "Card_Title"
+  Add_Items.className = "Add_Items"
   Add_Items.id = `Add_Items${NoOfCards}`
   Button_Area.className = "Button_Area"
   Delete_Card.className = "fa fa-trash Delete_Card"
   New_Task.className = "fa fa-plus-circle fa-2x New_Task"
 
+  
   Card_Title.innerText = `${NewCardName.value}`
 
             // Add Event Listner for SubTask

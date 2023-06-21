@@ -33,7 +33,7 @@ header{
 #SingleTag{
     font-weight: bold;
     font-size: 42px;
-    margin-right: 10px;
+    margin-right: 10px auto;
 }
 
 
@@ -43,7 +43,6 @@ header{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    
 }
 
 .SinglePage{
@@ -65,7 +64,7 @@ header{
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 30px;
     position: absolute;
 }
@@ -80,7 +79,7 @@ header{
 }
 .Btn{
     cursor: pointer;
-    font-size: 25px;
+    font-size: 22px;
     color: white;
     border: 1px solid tomato;
     height: 40px;
@@ -98,8 +97,6 @@ header{
     background-color: white;
     border: 1px groove tomato;
     border-radius: 10px;
-    /* top: 100px;
-    left: 300px; */
     position: relative;
     margin: 30px;
 }
@@ -112,12 +109,17 @@ header{
     margin-top: 20px;
     cursor: pointer;
 }
+.Add_Items{
+    min-height: 225px;
+    margin-top: 5px;
+    text-align: center;
+}
 
 .Button_Area{
+    font-size: 25px;
     width: 90px;
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
+    float: right;
+    margin-right: 10px;
     display: flex;
     justify-content: space-between;
 }
@@ -142,11 +144,6 @@ header{
 
 /* ******************************* */
 
-.NewSubTask{
-    text-align: center;
-    margin-top: 5px;
-}
-
 .Notes{
     font-size: 20px;
     color: black;
@@ -165,4 +162,55 @@ header{
     vertical-align: 25%;
     cursor: pointer;
     margin-left: 10px;
+}
+
+@media screen and (min-width : 320px) and (max-width:426px) {
+    header{
+        padding: 20px 10px;
+    }
+    .right , .left{
+        font-size: 30px;
+    }
+    .add_item{
+        font-size: 23px;
+    }
+    .PopUp{
+        top: 10em;
+        left: 16vw;
+    }
+    .PopUp_List{
+        width: 270px;
+        height: 150px;
+        padding: 20px;
+    }
+    .PopUp input{
+        height: 30px;
+    }
+    .Btn{
+        font-size: 20px;
+        height: 30px;
+        width: 80px; 
+    }
+    #ToDoContainer{
+        margin: 30px 10px;  
+        font-size: 25px;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #back{
+        font-size: 1.5em;
+        left: 50px;
+    }
+    #SingleTag {
+        font-size: 32px;
+        margin-right: 40px;
+        margin-top: 50px;
+    }
+    .SinglePage{
+        margin: 0px;
+    }
+    .Todo_Cards{
+        margin: 30px auto;
+    }
 }

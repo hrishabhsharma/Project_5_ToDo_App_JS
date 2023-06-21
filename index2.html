@@ -4,33 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-      *{
-        box-sizing: border-box;
-      }
-      .Notes{
-        /* color: red; */
-        /* text-align: center; */
-        font-size: 20px;
-        /* text-decoration: line-through; */
-      }
-      .TaskDone{
-          background-color: rgb(66, 116, 211);
-          color: white;
-          border: 1px solid rgb(66, 116, 211);
-          border-radius: 15px;
-          font-size: 10px;
-          padding: 5px;
-          vertical-align: 25%;
-          cursor: pointer;
-          margin-left: 10px;
-      }
-    </style>
+    <link rel="stylesheet" href="style2.css">
 </head>
 <body>
-<div >
-  <span class="Notes">Todo</span>
-  <span class="TaskDone">Mark Done</span>
-</div>
+    <div id="card" class="card">
+        <h2>Title</h2>
+        <input type="text" id="newtitle"><br>
+        <button id="JumpLink" onclick="switchtocard()">Submit</button>
+    </div>
+    <div id="ShowCard" class="card" style="display: none;">
+        <div id="title"></div>
+    </div>
+    <script src="./script2.js"></script>
 </body>
 </html>

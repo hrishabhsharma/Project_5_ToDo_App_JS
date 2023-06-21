@@ -1,0 +1,26 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+}
+.card{
+    position: relative;
+    top: 20em;
+    left: 40em;
+    height: 150px;
+    width: 200px;
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+#JumpLink{
+    width: 60px;
+    padding: 10px;
+}
+#title{
+    padding: 10px;
+    border: 1px;
+}
