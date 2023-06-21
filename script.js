@@ -48,8 +48,10 @@ function ShowTaskPopUp(){
 }
 
 CreatNewCards.addEventListener('click',()=>{
-  AddNewCard()
-  NoOfCards++;
+  if(NewCardName.value){
+    AddNewCard()
+    NoOfCards++;
+  }
   msgNoItem()
   HidePopUps()
   SwitchToAllCard()

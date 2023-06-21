@@ -76,6 +76,10 @@ header{
     text-align: center; 
     border-radius: 5px; 
     height: 40px;
+    box-shadow: inset 0px 0px 4px black;
+}
+.PopUp input:focus{
+    box-shadow: inset 0px 0px 1px black;
 }
 .Btn{
     cursor: pointer;
@@ -176,21 +180,21 @@ header{
     }
     .PopUp{
         top: 10em;
-        left: 16vw;
+        left: 14vw;
     }
     .PopUp_List{
-        width: 270px;
-        height: 150px;
+        width: 300px;
+        height: 180px;
         padding: 20px;
     }
-    .PopUp input{
+    /* .PopUp input{
         height: 30px;
-    }
-    .Btn{
-        font-size: 20px;
-        height: 30px;
-        width: 80px; 
-    }
+    } */
+    /* .Btn{ */
+        /* font-size: 20px; */
+        /* height: 30px; */
+        /* width: 80px;  */
+    /* } */
     #ToDoContainer{
         margin: 30px 10px;  
         font-size: 25px;
