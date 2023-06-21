@@ -103,11 +103,16 @@ function AddNewCard(){
     NoOfCards--;
     msgNoItem()
   })
-            // Add Event Listner for Single card
+  // Add Event Listner for Single card
   Card_Title.addEventListener('click',()=>{
     PageTitle.innerText = Card_Title.innerText
     SinglePage.appendChild(NewCard)
     SwitchToSingleCard()
+    Delete_Card.addEventListener('click',()=>{
+      NewCard.remove()
+      msgNoItem()
+      SwitchToAllCard()
+    })
   })
 
   LeftSecondPage.addEventListener('click',()=>{
@@ -115,8 +120,8 @@ function AddNewCard(){
     SwitchToAllCard()
   })
   OpenCardPopUp[1].addEventListener('click',()=>{
-    ShowCardPopUp()
     ToDoContainer.appendChild(NewCard)
+    ShowCardPopUp()
   })
 }
 
