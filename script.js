@@ -33,6 +33,7 @@ function ShowCardPopUp(){
   Todo_List.style.display = "flex";
   Todo_Task.style.display = "none";
   WorkSpace.style.filter = "blur(3Px)";
+  NewCardName.value = "";
 }
 
 function HidePopUps(){
@@ -45,6 +46,7 @@ function ShowTaskPopUp(){
   PopUp.style.display = "block";
   Todo_List.style.display = "none";
   WorkSpace.style.filter = "blur(3Px)";
+  NewSubTaskName.value = "";
 }
 
 CreatNewCards.addEventListener('click',()=>{
